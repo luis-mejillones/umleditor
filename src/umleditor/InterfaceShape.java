@@ -20,6 +20,7 @@ public class InterfaceShape extends GeneralUmlObject {
         if (this.linkRule.canLink(this.type, shape.getType())) {
             return this.linkedObjects.add(shape);
         }
+        System.out.println("Can't link " + this.type + " to " + shape.getType());
         
         return false;
     }
@@ -37,8 +38,7 @@ public class InterfaceShape extends GeneralUmlObject {
     
     @Override
     public void display() {
-        System.out.println("Interface: " + super.textContent);
-        System.out.println("  linked:" + this.linkedObjects);
+        System.out.println("Interface: " + super.textContent + " linked to:" + this.linkedObjects);
     }
     
 }

@@ -3,21 +3,22 @@ package umleditor;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClassShape extends GeneralUmlObject {
+public class ExtendsConnector extends Connector {
     UmlObjectType type;
     List<ShapeContainer> linkedObjects;
     Link linkRule;
     
-    public ClassShape(Link linkRule) {
-        super(new TextContent("class name", "body class"));
-        this.type = UmlObjectType.CLASS;
+    public ExtendsConnector(Link linkRule) {
+        super(LineType.SOLID, HeadType.WHITE_TRIANGLE);
+        this.type = UmlObjectType.EXTENDS;
         this.linkedObjects = new ArrayList<>();
         this.linkRule = linkRule;
     }
-    
+
     @Override
     public boolean link(ShapeContainer shape) {
         if (this.linkRule.canLink(this.type, shape.getType())) {
+            shape.link(this);
             return this.linkedObjects.add(shape);
         }
         System.out.println("Can't link " + this.type + " to " + shape.getType());
@@ -36,9 +37,12 @@ public class ClassShape extends GeneralUmlObject {
     }
     
     
+
     @Override
     public void display() {
-        System.out.println("Class: " + super.textContent + " linked to:" + this.linkedObjects);
-    }
-    
+        System.out.println(
+                "ImplementsConnector:" + super.headType + "-" + super.linetype +
+                        " linked to:" + this.linkedObjects
+        );
+    } 
 }

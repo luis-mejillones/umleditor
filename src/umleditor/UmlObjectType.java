@@ -3,7 +3,7 @@ package umleditor;
 public enum UmlObjectType {
     CLASS,
     INTERFACE,
-    IMPLEMENTATION,
+    IMPLEMENTS,
     EXTENDS,
     COMPOSITION,
     AGREGATION,

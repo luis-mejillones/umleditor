@@ -10,7 +10,7 @@ public class ImplementsConnector extends Connector {
     
     public ImplementsConnector(Link linkRule) {
         super(LineType.DASHED, HeadType.WHITE_TRIANGLE);
-        this.type = UmlObjectType.IMPLEMENTATION;
+        this.type = UmlObjectType.IMPLEMENTS;
         this.linkedObjects = new ArrayList<>();
         this.linkRule = linkRule;
     }
@@ -21,6 +21,7 @@ public class ImplementsConnector extends Connector {
             shape.link(this);
             return this.linkedObjects.add(shape);
         }
+        System.out.println("Can't link " + this.type + " to " + shape.getType());
         
         return false;
     }
@@ -39,7 +40,9 @@ public class ImplementsConnector extends Connector {
 
     @Override
     public void display() {
-        System.out.println("ImplementsConnector:" + super.headType + "-" + super.linetype);
-        System.out.println("  linked:" + this.linkedObjects);
+        System.out.println(
+                "ImplementsConnector:" + super.headType + "-" + super.linetype +
+                        " linked to:" + this.linkedObjects
+        );
     } 
 }
