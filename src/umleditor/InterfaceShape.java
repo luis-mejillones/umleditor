@@ -9,7 +9,7 @@ public class InterfaceShape extends GeneralUmlObject {
     Link linkRule;
     
     public InterfaceShape(Link linkRule) {
-        super(new TextContent("<<interface>>", "Name"));
+        super(new ShapeContent("<<interface>>", "Name"));
         this.type = UmlObjectType.INTERFACE;
         this.linkedObjects = new ArrayList<>();
         this.linkRule = linkRule;
@@ -34,10 +34,9 @@ public class InterfaceShape extends GeneralUmlObject {
         return this.type;
     }
     
-    
     @Override
     public void display() {
-        System.out.println("Interface: " + super.textContent);
+        System.out.println("Interface: " + super.shapeContent);
         System.out.println("  linked:" + this.linkedObjects);
     }
     

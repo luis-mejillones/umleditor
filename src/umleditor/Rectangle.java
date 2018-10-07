@@ -1,35 +1,51 @@
 package umleditor;
 
-public class Rectangle {
-    private final static int DEFAULT_LENGTH = 100;
-    private final static int DEFAULT_WIDTH = 50;
-    int length;
-    int width;
+import umleditor.view.RectangleView;
 
+public class Rectangle {
+    private final static int DEFAULT_HEIGHT = 50;
+    private final static int DEFAULT_WIDTH = 100;
+    private final static int DEFAULT_X = 10;
+    private final static int DEFAULT_Y = 10;
+
+    RectangleView view;
+    
+    
     public Rectangle() {
-        this.length = DEFAULT_LENGTH;
-        this.width = DEFAULT_WIDTH;
+        view = new RectangleView(DEFAULT_X, DEFAULT_Y, DEFAULT_WIDTH, DEFAULT_HEIGHT);
+        
     }
     
-    public Rectangle(int length, int width) {
-        this.length = length;
-        this.width = width;
+    public void draw() {
+        this.view.draw();
+    }
+    
+    public void setX(int x) {
+        this.view.setX(x);
     }
 
-    public int getLength() {
-        return length;
+    public void setY(int y) {
+        this.view.setY(y);
     }
 
-    public void setLength(int length) {
-        this.length = length;
+    public void setPosition(int x, int y) {
+        this.view.setPosition(x, y);
+    }
+    
+    public int getHeight() {
+        return this.view.getHeight();
+    }
+
+    public void setHeight(int height) {
+        this.view.setHeight(height);
     }
 
     public int getWidth() {
-        return width;
+        return this.view.getWidth();
     }
 
     public void setWidth(int width) {
-        this.width = width;
+        this.view.setWidth(width);
     }
     
     void display() {
@@ -38,7 +54,7 @@ public class Rectangle {
 
     @Override
     public String toString() {
-        return "Rectangle {" + length + ", " + width + "}";
+        return this.view.toString();
     }
 
 }

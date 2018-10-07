@@ -9,7 +9,7 @@ public class ClassShape extends GeneralUmlObject {
     Link linkRule;
     
     public ClassShape(Link linkRule) {
-        super(new TextContent("class name", "body class"));
+        super(new ShapeContent("class name", "body class"));
         this.type = UmlObjectType.CLASS;
         this.linkedObjects = new ArrayList<>();
         this.linkRule = linkRule;
@@ -37,7 +37,7 @@ public class ClassShape extends GeneralUmlObject {
     
     @Override
     public void display() {
-        System.out.println("Class: " + super.textContent);
+        System.out.println("Class: " + super.shapeContent);
         System.out.println("  linked:" + this.linkedObjects);
     }
     
